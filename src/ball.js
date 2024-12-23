@@ -1,9 +1,9 @@
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.x = 1;
-camera.position.y = 2;
-camera.position.z = 3;
+camera.position.x = 1.0;
+camera.position.y = 2.0;
+camera.position.z = 1.0;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -143,14 +143,30 @@ controls.enablePan = true;
     }
   });
 }
-const infoDiv = document.getElementById("info");
+
+const camera_x = document.getElementById("camera_x");
+const camera_y = document.getElementById("camera_y");
+const camera_z = document.getElementById("camera_z");
+
+camera_x.addEventListener("input", () => {
+  camera.position.x = Number.parseFloat(camera_x.value);
+});
+camera_y.addEventListener("input", () => {
+  camera.position.y = Number.parseFloat(camera_y.value);
+});
+camera_z.addEventListener("input", () => {
+  camera.position.z = Number.parseFloat(camera_z.value);
+});
+
 function render() {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 
-  const position = camera.position;
-//   infoDiv.innerHTML = `Camera Position:<br>X: ${position.x.toFixed(2)}<br>Y: ${position.y.toFixed(2)}<br>Z: ${position.z.toFixed(2)}`;
+  camera_x.value = camera.position.x.toFixed(2);
+  camera_y.value = camera.position.y.toFixed(2);
+  camera_z.value = camera.position.z.toFixed(2);
+  //   infoDiv.innerHTML = `Camera Position:<br>X: ${position.x.toFixed(2)}<br>Y: ${position.y.toFixed(2)}<br>Z: ${position.z.toFixed(2)}`;
 }
 
 render();

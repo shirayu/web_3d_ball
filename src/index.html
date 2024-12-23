@@ -24,16 +24,19 @@
         <input type="checkbox" id="enableSideR" checked="checked">
 
         <hr>
+        Camera Position
+        <br>
+
         <label for="camera_x">X: </label>
-        <input type="value" id="camera_x" step="0.1">
+        <input type="number" id="camera_x" step="0.01">
         <br>
 
         <label for="camera_y">Y: </label>
-        <input type="value" id="camera_y" step="0.1">
+        <input type="number" id="camera_y" step="0.01">
         <br>
 
         <label for="camera_z">Z: </label>
-        <input type="value" id="camera_z" step="0.1">
+        <input type="number" id="camera_z" step="0.01">
     </div>
     <script src="https://unpkg.com/three@0.142.0/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.142.0/examples/js/controls/OrbitControls.js"></script>
