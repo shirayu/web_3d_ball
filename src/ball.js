@@ -150,7 +150,7 @@ function render() {
   requestAnimationFrame(render);
 
   const position = camera.position;
-  infoDiv.innerHTML = `Camera Position:<br>X: ${position.x.toFixed(2)}<br>Y: ${position.y.toFixed(2)}<br>Z: ${position.z.toFixed(2)}`;
+//   infoDiv.innerHTML = `Camera Position:<br>X: ${position.x.toFixed(2)}<br>Y: ${position.y.toFixed(2)}<br>Z: ${position.z.toFixed(2)}`;
 }
 
 render();

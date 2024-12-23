@@ -4,38 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web 3D ball</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        canvas {
-            display: block;
-        }
-        .controls {
-            position: absolute;
-            top: 10px;
-            right:0px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .info {
-            position: absolute;
-            right:0px;
-            bottom: 10px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
     <div class="controls">
@@ -54,12 +23,21 @@
         <label for="enableSideR">Side (R): </label>
         <input type="checkbox" id="enableSideR" checked="checked">
 
-    </div>
-    <div id="info" class="info">
+        <hr>
+        <label for="camera_x">X: </label>
+        <input type="value" id="camera_x" step="0.1">
+        <br>
+
+        <label for="camera_y">Y: </label>
+        <input type="value" id="camera_y" step="0.1">
+        <br>
+
+        <label for="camera_z">Z: </label>
+        <input type="value" id="camera_z" step="0.1">
     </div>
     <script src="https://unpkg.com/three@0.142.0/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.142.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="ball.js"> </script>
+    <script src="ball.js"></script>
 </body>
 </html>
 
