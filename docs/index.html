@@ -8,35 +8,39 @@
 </head>
 <body>
     <div class="controls">
-        <label for="opacityRange">Opacity: </label>
-        <input id="opacityRange" type="range" min="0" max="1" step="0.1" value="1" style="width:100px;">
-        <span id="opacityValueIndicator"></span>
-        <br>
+        <div class="controls_sub">
+            <label for="opacityRange">Opacity: </label>
+            <input id="opacityRange" type="range" min="0" max="1" step="0.1" value="1" style="width:100px;">
+            <span id="opacityValueIndicator"></span>
+            <br>
 
-        <label for="enableCross">Crosses: </label>
-        <input type="checkbox" id="enableCross" checked="checked">
-        <br>
+            <label for="enableCross">Crosses: </label>
+            <input type="checkbox" id="enableCross" checked="checked">
+            <br>
 
-        <label for="enableSideL">Side (L): </label>
-        <input type="checkbox" id="enableSideL" checked="checked">
+            <label for="enableSideL">Side (L): </label>
+            <input type="checkbox" id="enableSideL" checked="checked">
+            <br>
 
-        <label for="enableSideR">Side (R): </label>
-        <input type="checkbox" id="enableSideR" checked="checked">
+            <label for="enableSideR">Side (R): </label>
+            <input type="checkbox" id="enableSideR" checked="checked">
 
-        <hr>
-        Camera Position
-        <br>
+        </div>
+        <div class="controls_sub">
+                Camera Position
+                <br>
 
-        <label for="camera_x">X: </label>
-        <input type="number" id="camera_x" step="0.01">
-        <br>
+                <label for="camera_x">X: </label>
+                <input type="number" id="camera_x" step="0.01" class="camera_input">
+                <br>
 
-        <label for="camera_y">Y: </label>
-        <input type="number" id="camera_y" step="0.01">
-        <br>
+                <label for="camera_y">Y: </label>
+                <input type="number" id="camera_y" step="0.01" class="camera_input">
+                <br>
 
-        <label for="camera_z">Z: </label>
-        <input type="number" id="camera_z" step="0.01">
+                <label for="camera_z">Z: </label>
+                <input type="number" id="camera_z" step="0.01" class="camera_input">
+        </div>
     </div>
 
     <script src="https://unpkg.com/three@0.142.0/build/three.min.js" integrity="sha384-cJucAWTmbXzRd5kRsfGUtc1WbnUGXRWJraQnGybiGbsfpt+EBvTrOSoUu25U9HXt" crossorigin="anonymous"></script>
