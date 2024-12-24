@@ -35,6 +35,28 @@ function drawLineOnSurface(color, positionFunc) {
   return myline;
 }
 
+function drarSurroundingLines(color, x_position, yz_position) {
+  const LineMaterial = new THREE.LineBasicMaterial({ color: color });
+  const lines_sr = [];
+  for (let j = 0; j < 4; j++) {
+    const ks = [1, 1, 1, 1];
+    ks[j] = -1;
+    if (j === 2 || j === 3) {
+      ks[0] = -1;
+      ks[1] = -1;
+    }
+    const oLineGeometry_sr = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(x_position, ks[0] * yz_position, ks[1] * yz_position),
+      new THREE.Vector3(x_position, ks[2] * yz_position, ks[3] * yz_position),
+    ]);
+    const oLine_sr = new THREE.Line(oLineGeometry_sr, LineMaterial);
+    oLine_sr.visible = false;
+    scene.add(oLine_sr);
+    lines_sr.push(oLine_sr);
+  }
+  return lines_sr;
+}
+
 drawLineOnSurface("red", (index) => {
   const theta = index * 2 * Math.PI;
   return [Math.cos(theta), 0, Math.sin(theta)];
@@ -89,23 +111,7 @@ function draw_organe_lines(val) {
   const oLine2 = new THREE.Line(oLineGeometry2, orangeLineMaterial);
   scene.add(oLine2);
 
-  const lines_sr = [];
-  for (let j = 0; j < 4; j++) {
-    const ks = [1, 1, 1, 1];
-    ks[j] = -1;
-    if (j === 2 || j === 3) {
-      ks[0] = -1;
-      ks[1] = -1;
-    }
-    const oLineGeometry_sr = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(x_position, ks[0] * z, ks[1] * z),
-      new THREE.Vector3(x_position, ks[2] * z, ks[3] * z),
-    ]);
-    const oLine_sr = new THREE.Line(oLineGeometry_sr, orangeLineMaterial);
-    oLine_sr.visible = false;
-    scene.add(oLine_sr);
-    lines_sr.push(oLine_sr);
-  }
+  const lines_sr = drarSurroundingLines("orange", x_position, z);
 
   const oCircle3 = drawLineOnSurface("orange", (index) => {
     const theta = index * 2 * Math.PI;
