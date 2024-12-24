@@ -66,7 +66,9 @@ const yLine = new THREE.Line(yLineGeometry, yellowlineMaterial);
 scene.add(yLine);
 
 const orange_linesL = [];
+let orange_linesL_sr = [];
 const orange_linesR = [];
+let orange_linesR_sr = [];
 function draw_organe_lines(val) {
   let x_position = 2 / 3;
   if (!val) {
@@ -87,6 +89,24 @@ function draw_organe_lines(val) {
   const oLine2 = new THREE.Line(oLineGeometry2, orangeLineMaterial);
   scene.add(oLine2);
 
+  const lines_sr = [];
+  for (let j = 0; j < 4; j++) {
+    const ks = [1, 1, 1, 1];
+    ks[j] = -1;
+    if (j === 2 || j === 3) {
+      ks[0] = -1;
+      ks[1] = -1;
+    }
+    const oLineGeometry_sr = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(x_position, ks[0] * z, ks[1] * z),
+      new THREE.Vector3(x_position, ks[2] * z, ks[3] * z),
+    ]);
+    const oLine_sr = new THREE.Line(oLineGeometry_sr, orangeLineMaterial);
+    oLine_sr.visible = false;
+    scene.add(oLine_sr);
+    lines_sr.push(oLine_sr);
+  }
+
   const oCircle3 = drawLineOnSurface("orange", (index) => {
     const theta = index * 2 * Math.PI;
     const z = Math.sqrt(5 / 9);
@@ -94,8 +114,10 @@ function draw_organe_lines(val) {
   });
   if (val) {
     orange_linesR.push(oLine1, oLine2, oCircle3);
+    orange_linesR_sr = lines_sr.slice();
   } else {
     orange_linesL.push(oLine1, oLine2, oCircle3);
+    orange_linesL_sr = lines_sr.slice();
   }
 }
 draw_organe_lines(true);
@@ -134,12 +156,24 @@ controls.enablePan = true;
       orange_linesL[j].visible = enableSideL.checked;
     }
   });
+  const enableSideL_sr = document.getElementById("enableSideL_sr");
+  enableSideL_sr.addEventListener("input", () => {
+    for (let j = 0; j < orange_linesL_sr.length; j++) {
+      orange_linesL_sr[j].visible = enableSideL_sr.checked;
+    }
+  });
 }
 {
   const enableSideR = document.getElementById("enableSideR");
   enableSideR.addEventListener("input", () => {
     for (let j = 0; j < orange_linesR.length; j++) {
       orange_linesR[j].visible = enableSideR.checked;
+    }
+  });
+  const enableSideR_sr = document.getElementById("enableSideR_sr");
+  enableSideR_sr.addEventListener("input", () => {
+    for (let j = 0; j < orange_linesR_sr.length; j++) {
+      orange_linesR_sr[j].visible = enableSideR_sr.checked;
     }
   });
 }
