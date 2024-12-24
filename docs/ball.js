@@ -178,29 +178,30 @@ controls.enablePan = true;
   });
 }
 
-const camera_x = document.getElementById("camera_x");
-const camera_y = document.getElementById("camera_y");
-const camera_z = document.getElementById("camera_z");
+{
+  const camera_x = document.getElementById("camera_x");
+  const camera_y = document.getElementById("camera_y");
+  const camera_z = document.getElementById("camera_z");
 
-camera_x.addEventListener("input", () => {
-  camera.position.x = Number.parseFloat(camera_x.value);
-});
-camera_y.addEventListener("input", () => {
-  camera.position.y = Number.parseFloat(camera_y.value);
-});
-camera_z.addEventListener("input", () => {
-  camera.position.z = Number.parseFloat(camera_z.value);
-});
+  camera_x.addEventListener("input", () => {
+    camera.position.x = Number.parseFloat(camera_x.value);
+  });
+  camera_y.addEventListener("input", () => {
+    camera.position.y = Number.parseFloat(camera_y.value);
+  });
+  camera_z.addEventListener("input", () => {
+    camera.position.z = Number.parseFloat(camera_z.value);
+  });
 
-function render() {
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(render);
+  function render() {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
 
-  camera_x.value = camera.position.x.toFixed(2);
-  camera_y.value = camera.position.y.toFixed(2);
-  camera_z.value = camera.position.z.toFixed(2);
-  //   infoDiv.innerHTML = `Camera Position:<br>X: ${position.x.toFixed(2)}<br>Y: ${position.y.toFixed(2)}<br>Z: ${position.z.toFixed(2)}`;
+    camera_x.value = camera.position.x.toFixed(2);
+    camera_y.value = camera.position.y.toFixed(2);
+    camera_z.value = camera.position.z.toFixed(2);
+  }
 }
 
 render();
