@@ -35,7 +35,7 @@ function drawLineOnSurface(color, positionFunc) {
   return myline;
 }
 
-function drarSurroundingLines(color, x_position, yz_position) {
+function drawSurroundingLines(color, x_position, yz_position) {
   const LineMaterial = new THREE.LineBasicMaterial({ color: color });
   const lines_sr = [];
   for (let j = 0; j < 4; j++) {
@@ -71,6 +71,7 @@ drawLineOnSurface("blue", (index) => {
   const theta = index * 2 * Math.PI;
   return [0, Math.sin(theta), Math.cos(theta)];
 });
+const lines_sr_blue = drawSurroundingLines("blue", 0, 1);
 
 const yellowlineMaterial = new THREE.LineBasicMaterial({ color: "yellow" });
 const xLineGeometry = new THREE.BufferGeometry().setFromPoints([
@@ -111,7 +112,7 @@ function draw_organe_lines(val) {
   const oLine2 = new THREE.Line(oLineGeometry2, orangeLineMaterial);
   scene.add(oLine2);
 
-  const lines_sr = drarSurroundingLines("orange", x_position, z);
+  const lines_sr = drawSurroundingLines("orange", x_position, z);
 
   const oCircle3 = drawLineOnSurface("orange", (index) => {
     const theta = index * 2 * Math.PI;
@@ -153,6 +154,14 @@ controls.enablePan = true;
   enableCross.addEventListener("input", () => {
     xLine.visible = enableCross.checked;
     yLine.visible = enableCross.checked;
+  });
+
+  const enableCross_sr = document.getElementById("enableCross_sr");
+  enableCross_sr.addEventListener("input", () => {
+    console.log(enableCross_sr.checked);
+    for (let j = 0; j < lines_sr_blue.length; j++) {
+      lines_sr_blue[j].visible = enableCross_sr.checked;
+    }
   });
 }
 {
