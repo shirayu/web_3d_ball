@@ -10,7 +10,7 @@
     <div class="controls">
         <div class="controls_sub">
             <label for="opacityRange">Opacity: </label>
-            <input id="opacityRange" type="range" min="0" max="1" step="0.1" value="1" style="width:100px;">
+            <input id="opacityRange" type="range" min="0" max="1" step="0.1" value="1" style="width:3em;">
             <span id="opacityValueIndicator"></span>
             <br>
 
@@ -29,7 +29,8 @@
             <input type="checkbox" id="enableSideR_sr">
         </div>
         <div class="controls_sub">
-                Camera Position
+            <div class="controls_sub">
+                Camera 
                 <br>
 
                 <label for="camera_x">X: </label>
@@ -42,6 +43,20 @@
 
                 <label for="camera_z">Z: </label>
                 <input type="number" id="camera_z" step="0.01" class="camera_input">
+            </div>
+
+            <div class="controls_sub">
+                <label for="camera_fov">fov: </label>
+                <input type="number" id="camera_fov" step="0.01" class="camera_input" disabled>
+                <br>
+
+                <label for="camera_near">near: </label>
+                <input type="number" id="camera_near" step="0.01" class="camera_input" disabled>
+                <br>
+
+                <label for="camera_far">far: </label>
+                <input type="number" id="camera_far" step="0.01" class="camera_input" disabled>
+            </div>
         </div>
     </div>
 

@@ -201,6 +201,9 @@ controls.enablePan = true;
     camera_x.value = camera.position.x.toFixed(2);
     camera_y.value = camera.position.y.toFixed(2);
     camera_z.value = camera.position.z.toFixed(2);
+    camera_fov.value = camera.fov.toFixed(2);
+    camera_near.value = camera.near.toFixed(2);
+    camera_far.value = camera.far;
   }
 }
 
