@@ -11,7 +11,7 @@ tasks:
     deps: [lint_node]
 
   lint_node:
-    deps: [markdownlint]
+    deps: [pnpm_test]
 
 
   yamllint:
@@ -26,12 +26,9 @@ tasks:
       - ruff format --respect-gitignore --check
       - ruff check --respect-gitignore
 
-  markdownlint:
+  pnpm_test:
     cmds:
-      - >-
-        find . -type d \( -name node_modules -o -name .venv \) \
-          -prune -o -type f -name '*.md' -print \
-        | xargs npx markdownlint --config ./.markdownlint.json
+      - pnpm test
 
   shellcheck:
     cmds:
