@@ -207,6 +207,18 @@ controls.enablePan = true;
   camera_z.addEventListener("input", () => {
     camera.position.z = Number.parseFloat(camera_z.value);
   });
+  camera_fov.addEventListener("input", () => {
+    camera.fov = Number.parseInt(camera_fov.value);
+    camera.updateProjectionMatrix();
+  });
+  camera_near.addEventListener("input", () => {
+    camera.near = Number.parseFloat(camera_near.value);
+    camera.updateProjectionMatrix();
+  });
+  camera_far.addEventListener("input", () => {
+    camera.far = Number.parseInt(camera_far.value);
+    camera.updateProjectionMatrix();
+  });
 
   function render() {
     controls.update();
@@ -216,8 +228,8 @@ controls.enablePan = true;
     camera_x.value = camera.position.x.toFixed(2);
     camera_y.value = camera.position.y.toFixed(2);
     camera_z.value = camera.position.z.toFixed(2);
-    camera_fov.value = camera.fov.toFixed(2);
-    camera_near.value = camera.near.toFixed(2);
+    camera_fov.value = camera.fov;
+    camera_near.value = camera.near.toFixed(1);
     camera_far.value = camera.far;
   }
 }
