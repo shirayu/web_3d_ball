@@ -15,7 +15,7 @@ importers:
         specifier: ^0.43.0
         version: 0.43.0
       npm-run-all2:
-        specifier: ^7.0.1
+        specifier: ^7.0.2
         version: 7.0.2
 
 packages:
