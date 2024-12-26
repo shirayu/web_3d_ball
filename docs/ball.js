@@ -1,9 +1,11 @@
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const default_fov = 40;
+const default_near = 0.7;
+const camera = new THREE.PerspectiveCamera(default_fov, window.innerWidth / window.innerHeight, default_near, 1000);
 camera.position.x = 1.0;
 camera.position.y = 2.0;
-camera.position.z = 1.0;
+camera.position.z = 3.0;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
