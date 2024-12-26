@@ -141,13 +141,10 @@ controls.enablePan = true;
 
 {
   const opacityRange = document.getElementById("opacityRange");
-  const opacityValueIndicator = document.getElementById("opacityValueIndicator");
   opacityRange.value = material.opacity;
-  opacityValueIndicator.innerText = material.opacity.toFixed(1);
   opacityRange.addEventListener("input", (event) => {
     const value = Number.parseFloat(event.target.value);
     material.opacity = value;
-    opacityValueIndicator.innerText = value.toFixed(1);
   });
 }
 

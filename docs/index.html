@@ -8,10 +8,9 @@
 </head>
 <body>
     <div class="controls">
-        <div class="controls_sub">
+        <div class="controls_sub controls_base">
             <label for="opacityRange">Opacity: </label>
-            <input id="opacityRange" type="range" min="0" max="1" step="0.1" value="1" style="width:3em;">
-            <span id="opacityValueIndicator"></span>
+            <input id="opacityRange" type="number" min="0" max="1" step="0.1" value="1" style="width:3em;">
             <br>
 
             <label for="enableCross">Crosses: </label>
@@ -30,7 +29,7 @@
             <input type="checkbox" id="enableSideR_sr">
         </div>
         <div class="controls_sub">
-            <div class="controls_sub">
+            <div class="controls_sub controls_camera1">
                 Camera 
                 <br>
 
@@ -46,7 +45,7 @@
                 <input type="number" id="camera_z" step="0.01" class="camera_input">
             </div>
 
-            <div class="controls_sub">
+            <div class="controls_sub controls_camera2" style="margin-top:1em;">
                 <label for="camera_fov">fov: </label>
                 <input type="number" id="camera_fov" step="1" class="camera_input">
                 <br>

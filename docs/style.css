@@ -9,10 +9,23 @@ canvas {
   display: block;
 }
 
+.controls label {
+  display: inline-block;
+  vertical-align: top;
+}
+.controls_base label {
+  width: 5em;
+}
+.controls_camera1 label {
+  width: 1em;
+}
+.controls_camera2 label {
+  width: 3em;
+}
 .controls_sub {
   float: left;
+  margin: 0 0.7em 0 0;
 }
-
 .camera_input {
   width: 4em;
 }
