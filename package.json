@@ -6,12 +6,12 @@
   "name": "web_3d_ball",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "format": "run-s format:biome format:markdownlint format:toml",
+    "format": "run-p format:biome format:md format:toml",
     "format:biome": "biome check --write",
-    "format:markdownlint": "markdownlint -f ./*.md doc/*.md",
+    "format:md": "markdownlint -f ./*.md doc/*.md",
     "format:toml": "taplo format *.toml",
     "test": ":",
-    "lint": "run-s lint:biome lint:md lint:toml",
+    "lint": "run-p lint:biome lint:md lint:toml",
     "lint:biome": "biome check",
     "lint:md": "npx markdownlint *.md docs/*.md",
     "lint:toml": "taplo format --check *.toml"
@@ -20,7 +20,6 @@
   "devDependencies": {
     "@taplo/cli": "^0.7.0",
     "@biomejs/biome": "1.9.4",
-    "markdown-it": "^14.1.0",
     "markdownlint-cli": "^0.44.0",
     "npm-run-all2": "^7.0.2"
   },
