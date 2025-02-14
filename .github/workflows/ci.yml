@@ -48,4 +48,5 @@ jobs:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: task -p all_for_ci
+      - run: task -p lint
+      - run: task -p test
