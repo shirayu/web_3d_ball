@@ -13,7 +13,7 @@
     "test": ":",
     "lint": "run-p lint:biome lint:md lint:toml",
     "lint:biome": "biome check",
-    "lint:md": "npx markdownlint *.md docs/*.md",
+    "lint:md": "markdownlint *.md docs/*.md",
     "lint:toml": "taplo format --check *.toml"
   },
   "version": "1.0.0",
